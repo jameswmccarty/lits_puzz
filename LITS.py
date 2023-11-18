@@ -136,9 +136,10 @@ def search(region_options,pieces_selected=[],joined_set=set()):
 
 def solve(a_puzzle):
 	possibilities = []
+	tetrominos = gen_all_tetrominos()
 	for region in puzz_to_puzzareas(a_puzzle):
 		fittings = []
-		for tetromino in gen_all_tetrominos():
+		for tetromino in tetrominos:
 			for e in piece_fits(tetromino,region):
 				fittings.append(e)
 		possibilities.append(fittings)
